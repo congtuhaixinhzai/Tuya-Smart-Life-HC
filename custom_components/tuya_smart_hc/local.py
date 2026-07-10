@@ -2169,6 +2169,34 @@ def _is_phase_realtime_dp(device: TuyaDeviceDescription, dp_id: Any) -> bool:
     return "phase_" in text or "相实时数据" in text
 
 
+
+TUYA_TRANSLATIONS = {
+    "开关": "Công tắc",
+    "开关1": "Công tắc 1",
+    "开关2": "Công tắc 2",
+    "开关3": "Công tắc 3",
+    "开关4": "Công tắc 4",
+    "功率": "Công suất",
+    "电压": "Điện áp",
+    "电流": "Dòng điện",
+    "电量": "Điện năng",
+    "增加电量": "Điện năng",
+    "总电量": "Tổng điện năng",
+    "童锁": "Khóa trẻ em",
+    "Child Lock": "Khóa trẻ em",
+    "child_lock": "Khóa trẻ em",
+    "Cur Power": "Công suất",
+    "Cur Voltage": "Điện áp",
+    "Cur Current": "Dòng điện",
+    "Add Ele": "Điện năng",
+}
+
+def _translate(text: str) -> str:
+    if not text:
+        return text
+    return TUYA_TRANSLATIONS.get(text, text)
+
+
 def _phase_realtime_label(device: TuyaDeviceDescription, dp_id: Any) -> str:
     schema = device.dp_schema.get(str(dp_id), {})
     code = str(schema.get("code") or "").strip().lower()
@@ -2235,12 +2263,10 @@ def _environment_sensor_label(
 ) -> str:
     name = device.dp_names.get(str(dp_id), "").strip()
     if name:
-        return name
-    
-    schema = device.dp_schema.get(str(dp_id), {})
-    code = str(schema.get("code") or "").strip()
-    if code:
-        return _title_from_code(code)
+        name = _translate(name)
+        import re
+        if not re.search(r'[一-鿿]', name):
+            return name
     
     if kind == "temperature":
         return "Nhiệt độ"
@@ -2254,6 +2280,12 @@ def _environment_sensor_label(
         return "Công suất"
     if kind == "voltage":
         return "Điện áp"
+
+    schema = device.dp_schema.get(str(dp_id), {})
+    code = str(schema.get("code") or "").strip()
+    if code:
+        return _translate(_title_from_code(code))
+    
     return f"DP {dp_id}"
 
 

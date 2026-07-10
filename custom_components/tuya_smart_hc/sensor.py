@@ -265,7 +265,7 @@ class TuyaLocalIpSensor(
     SensorEntity,
 ):
     _attr_has_entity_name = True
-    _attr_name = "IP local"
+    _attr_name = "Địa chỉ IP"
     _attr_icon = "mdi:ip-network"
     _attr_entity_category = EntityCategory.DIAGNOSTIC
 
