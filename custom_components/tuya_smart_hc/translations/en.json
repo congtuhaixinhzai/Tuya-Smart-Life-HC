@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Tuya Smart Life HC",
+        "description": "Chọn app Tuya hoặc Smart Life, đăng nhập bằng email/số điện thoại và mật khẩu, sau đó chọn nhà cần đồng bộ.",
+        "data": {
+          "email": "Email / số điện thoại",
+          "password": "Mật khẩu",
+          "mobile_app": "Ứng dụng"
+        }
+      },
+      "select_homes": {
+        "title": "Chọn nhà",
+        "description": "Chọn các nhà Tuya muốn đồng bộ vào Home Assistant. Để trống nếu chưa muốn đồng bộ thiết bị.",
+        "data": {
+          "selected_home_ids": "Nhà"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Không thể đăng nhập hoặc lấy danh sách nhà từ Tuya.",
+      "invalid_auth": "Email/số điện thoại hoặc mật khẩu không đúng.",
+      "invalid_client": "Hồ sơ mobile client Tuya/Smart Life đi kèm đã bị server từ chối.",
+      "unsupported_app": "Ứng dụng này chưa được hỗ trợ.",
+      "unknown": "Lỗi không xác định."
+    },
+    "abort": {
+      "already_configured": "Tài khoản Tuya này đã được cấu hình."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Cấu hình Tuya Smart HC",
+        "description": "Chọn tác vụ bạn muốn thực hiện:",
+        "menu_options": {
+          "select_homes": "Đồng bộ nhà (Homes)",
+          "add_climate": "Thêm Điều hòa IR",
+          "edit_climate": "Sửa Điều hòa IR",
+          "remove_climate": "Xóa Điều hòa IR",
+          "backup_climates": "Sao lưu Điều hòa IR",
+          "restore_climates": "Khôi phục Điều hòa IR",
+          "cloud_api": "Cấu hình Cloud API (Tùy chọn)"
+        }
+      },
+      "select_homes": {
+        "title": "Chọn nhà",
+        "description": "Chọn các nhà Tuya muốn đồng bộ vào Home Assistant. Credential Cloud MQTT được tự suy ra.",
+        "data": {
+          "selected_home_ids": "Nhà"
+        }
+      },
+      "backup_climates": {
+        "title": "Backup Configuration",
+        "description": "Automatically backed up {climates_count} IR climates and Cloud API config to:\n`{path}`\n\nPress Submit to return."
+      },
+      "restore_climates": {
+        "title": "Restore Configuration",
+        "description": "Choose a source to restore configuration (IR Climates and Cloud API).",
+        "menu_options": {
+          "restore_from_server": "Restore from server backup",
+          "restore_from_json": "Restore from JSON content (paste from PC)"
+        }
+      },
+      "restore_from_server": {
+        "title": "Restore from server",
+        "description": "Found a configuration backup on the server. Press Submit to restore."
+      },
+      "restore_from_json": {
+        "title": "Restore from JSON",
+        "description": "Open tuya_smart_hc_config.json with Notepad, copy the entire content and paste it into the box below.",
+        "data": {
+          "json_content": "JSON Content"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Không thể làm mới danh sách nhà Tuya. Đang hiển thị các nhà đã chọn trước đó.",
+      "invalid_json": "Nội dung JSON không hợp lệ. Hãy kiểm tra lại định dạng."
+    },
+    "abort": {
+      "no_backup_found": "No configuration backup found on the server.",
+      "no_config_to_backup": "There are currently no IR climates or Cloud API settings to backup."
+    }
+  }
+}

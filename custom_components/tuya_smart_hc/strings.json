@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Tuya Smart Life HC",
+        "description": "Chọn app Tuya hoặc Smart Life, đăng nhập bằng email/số điện thoại và mật khẩu, sau đó chọn nhà cần đồng bộ.",
+        "data": {
+          "email": "Email / số điện thoại",
+          "password": "Mật khẩu",
+          "mobile_app": "Ứng dụng"
+        }
+      },
+      "select_homes": {
+        "title": "Chọn nhà",
+        "description": "Chọn các nhà Tuya muốn đồng bộ vào Home Assistant. Để trống nếu chưa muốn đồng bộ thiết bị.",
+        "data": {
+          "selected_home_ids": "Nhà"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Không thể đăng nhập hoặc lấy danh sách nhà từ Tuya.",
+      "invalid_auth": "Email/số điện thoại hoặc mật khẩu không đúng.",
+      "invalid_client": "Hồ sơ mobile client Tuya/Smart Life đi kèm đã bị server từ chối.",
+      "unsupported_app": "Ứng dụng này chưa được hỗ trợ.",
+      "unknown": "Lỗi không xác định."
+    },
+    "abort": {
+      "already_configured": "Tài khoản Tuya này đã được cấu hình."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Cấu hình Tuya Smart HC",
+        "description": "Chọn tác vụ bạn muốn thực hiện:",
+        "menu_options": {
+          "select_homes": "Đồng bộ nhà (Homes)",
+          "add_climate": "Thêm Điều hòa IR",
+          "edit_climate": "Sửa Điều hòa IR",
+          "remove_climate": "Xóa Điều hòa IR",
+          "backup_climates": "Sao lưu Điều hòa IR",
+          "restore_climates": "Khôi phục Điều hòa IR",
+          "cloud_api": "Cấu hình Cloud API (Tùy chọn)"
+        }
+      },
+      "select_homes": {
+        "title": "Chọn nhà",
+        "description": "Chọn các nhà Tuya muốn đồng bộ vào Home Assistant. Credential Cloud MQTT được tự suy ra.",
+        "data": {
+          "selected_home_ids": "Nhà"
+        }
+      },
+      "backup_climates": {
+        "title": "Sao lưu Điều hòa IR",
+        "description": "Đã ghi đè sao lưu thành công cấu hình của {count} điều hòa hồng ngoại hiện tại."
+      },
+      "restore_climates": {
+        "title": "Khôi phục Điều hòa IR",
+        "description": "Chọn nguồn khôi phục:",
+        "menu_options": {
+          "restore_from_server": "Khôi phục từ bản sao lưu trên máy chủ",
+          "restore_from_json": "Khôi phục từ nội dung JSON (dán từ PC)"
+        }
+      },
+      "restore_from_server": {
+        "title": "Khôi phục từ máy chủ",
+        "description": "Đã tìm thấy {count} điều hòa hồng ngoại trong bản sao lưu trên máy chủ. Bấm Xác nhận để khôi phục."
+      },
+      "restore_from_json": {
+        "title": "Khôi phục từ JSON",
+        "description": "Mở file tuya_smart_hc_climates.json bằng Notepad, copy toàn bộ nội dung rồi dán vào ô bên dưới.",
+        "data": {
+          "json_content": "Nội dung JSON"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Không thể làm mới danh sách nhà Tuya. Đang hiển thị các nhà đã chọn trước đó.",
+      "invalid_json": "Nội dung JSON không hợp lệ. Hãy kiểm tra lại định dạng."
+    },
+    "abort": {
+      "no_backup_found": "Không tìm thấy bản sao lưu nào trên máy chủ.",
+      "no_climates_to_backup": "Hiện chưa có điều hòa nào được thiết lập. Hãy thêm điều hòa trước khi bấm sao lưu."
+    }
+  }
+}
