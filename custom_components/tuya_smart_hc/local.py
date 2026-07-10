@@ -2659,14 +2659,14 @@ def _child_lock_label(device: TuyaDeviceDescription, dp_id: str) -> str:
 def _switch_button_label(device: TuyaDeviceDescription, dp_id: str) -> str:
     name = device.dp_names.get(str(dp_id), "").strip()
     if name:
-        return name
+        return _translate(name)
         
     schema = device.dp_schema.get(str(dp_id), {})
     code = str(schema.get("code") or "").strip()
     if code:
-        return _title_from_code(code)
+        return _translate(_title_from_code(code))
         
-    return f"Nút {dp_id}"
+    return f"Công tắc {dp_id}"
 
 
 def _tinytuya_scan_devices(
